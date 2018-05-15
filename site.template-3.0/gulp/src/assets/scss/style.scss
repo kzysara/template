@@ -1,0 +1,257 @@
+@import "df_core/importer";  // import 대상
+@import "custom/all_custom";  // import 대상
+
+
+// =============================================================================
+// BEM mixin
+// =============================================================================
+
+$selector: "thisSelect";
+$component:'test-compoent';
+
+@include b($component) {
+    background: red;
+
+        @include e(header){
+            font-size: 14px;
+
+            @include m(css) {
+                font-size: 18px;
+                font-weight: bold;
+            }
+        };
+}
+
+//단위 제거 믹스인
+.delete-unit{
+    content:'단위가 삭제된 값은?' delUnit(30px);
+    //어쩌구 저쩌구
+}
+
+// =============================================================================
+// background mixin
+// =============================================================================
+$bg-img-path: '../images/';
+.background-mixin{
+    /* 기본 이미지만 사용 */
+    @include bg-img($bg-img-path, 'basic_image.jpg', red);
+    /* 레티나 사용시 인자로 true전달 */
+    @include bg-img($bg-img-path, 'retina_image_width_color.jpg',green, true);
+    @include bg-img($bg-img-path, 'retina_image_width_color_other.jpg', true, skyblue);
+    @include bg-img($bg-img-path, 'retina_image.jpg', pink);
+    @include bg-img($bg-img-path, 'none-color-retina_image.jpg', true);
+}
+
+.with-color-background-mixin{
+    /* 컬러값까지 사용 */
+    @include bg-img($bg-img-path, 'basic_image.jpg', rgba(255, 255, 255, 0.3));
+}
+
+.background-attribute{
+    // background-repeat Flag(R, X, Y, N), background-position, background-size
+    @include bg-attr(R,left top, cover);
+    @include bg-attr(X, 50% 30%);
+    @include bg-attr(N, 30px 20px);
+    @include bg-attr(N, '', contain);
+}
+
+// =============================================================================
+// placeholder mixin
+// =============================================================================
+@include placeholder(){
+    color:gold;
+};
+
+// 특정 엘리먼트에 적용시 Selector를 파라미터로 전달
+.placeholder-elements{
+    input[type=text]{
+        font-size:24px;
+        line-height:2;
+    }
+    @include placeholder(#{'input[type=text]'}){
+        color:lemonchiffon;
+    };
+    color:rgba(red,0.8)
+}
+
+
+// =============================================================================
+// media-query & vw-convert mixin
+// =============================================================================
+
+/* 기본 PC 화면 구간 */
+body{
+    &:before{
+        content: 'PC구간 : '  + $screen-pc-small +'~';
+    }
+}
+
+/// 폰트 스타일 믹스인
+//px단위용
+.font-px-unit{
+    @include px-font('bold', 12px, 24px);
+}
+
+//vw단위용
+.font-pc-vw-unit{
+    @include vw-font-pc('bold', 36, 26);  //vw 단위 반환
+}
+
+.pc-vw-test{
+    @include vw-convert-pc(padding, 30 50 20);
+}
+// line-height 믹스인
+.single-line-height-mixin{
+    @include line-height(1.3);
+    @include line-height(20px);
+}
+
+/* 키워드 입력형  break-point */
+@include break-point($tablet){
+    body{
+        &:before{
+            content: '타블릿 구간: '+ $screen-tablet-portrait + '~' +  $screen-tablet-max;
+        }
+    }
+
+    .font-tablet-vw-unit{
+        @include vw-font-tb('', 14, 23);
+    }
+
+    .tablet-vw-test{
+        @include vw-convert-tb(padding, 30 50 20);
+    }
+}
+
+@include break-point($mobile){
+    body{
+        &:before{
+            content: '모바일 구간: ~' +  $screen-mobile-max;
+        }
+    }
+
+    .mobile-vw-single{
+        @include vw-convert-mo(padding-left, 20);
+        @include vw-convert-mo(margin-top, 20);
+        @include vw-convert-mo(height, auto);
+    }
+    .mobile-vw-multi{
+        @include vw-convert-mo(padding, 30 auto 20);
+    }
+    .font-mobile-vw-unit{
+        @include vw-font-mo('', 32, 30);
+
+        //범용 vw-convert사용
+        @include vw-convert(padding, 20 auto, $psd-mobile-width);
+    }
+}
+
+/* 수치 입력형 break-point */
+@include break-point(1200px,min) {
+    ._1200-min-window{
+        color:gray;
+    }
+}
+
+@include break-point(1900px,max) {
+    ._1900-max-window{
+        color:pink;
+    }
+}
+
+
+@include break-point(1200px,1440px) {
+    .pc-vw-section{
+        color:red;
+       @include vw-convert(padding, 30 auto 30, $psd-pc-width);
+    }
+}
+
+@include break-point(1200px,1440px, portrait) {
+    .pc-vw-section-portrate{
+        color:red;
+        @include vw-convert(padding, 30 auto 30, $psd-pc-width);
+    }
+}
+
+@include break-point(600px,minH) {
+    body {
+        &:before {
+            content: '최소 높이 600px';
+        }
+    }
+}
+
+@include break-point(1200px,maxH) {
+    body {
+        &:before {
+            content: '최대 높이 1200px';
+        }
+    }
+}
+
+@include landscape(){
+    body{
+        &:before{
+            content:'가로화면';
+        }
+    }
+}
+
+@include portrait(){
+    body{
+        &:before{
+            content:'세로화면';
+        }
+    }
+}
+
+
+
+// =============================================================================
+// icon mixin
+// =============================================================================
+
+.icon-triangle{
+    //px 전용
+    &::after {
+        @include triangle("up", 6rem, 12rem, #b25c9c);
+        content: "";
+    }
+}
+
+.common-icon{
+    @include bg-attr(N, 0 0, cover);
+
+    &.svg-icon-width-png{
+        /* svg아이콘 이미지와 fallback으로 사용될 png이미지 생성, fallback용 이미지 생성을 위해서는 true 전달 */
+        @include svg-clip($bg-img-path, 'svg_image.svg', true);
+
+
+    }
+    &.only-svg-icon{
+        /* svg 아이콘 이미지만생성 */
+        @include svg-clip($bg-img-path, 'only_svg_image.svg');
+    }
+}
+
+a.btn{
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 24px;
+    padding:10px 20px;
+    border:1px solid gray;
+    background: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+

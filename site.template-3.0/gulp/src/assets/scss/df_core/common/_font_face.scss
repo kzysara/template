@@ -1,0 +1,19 @@
+// FontFace 생성
+@each $font-key, $font-name in $fonts-face-custom {
+  $font-path  : $path-web-font + $font-name;
+
+  @font-face {
+    font-family: $font-key;
+    src: url( $font-path +'.eot'); // IE9 Compat Modes
+    src: url( $font-path + '.eot?#iefix') format('embedded-opentype'), // IE6-IE8
+    /*local(※), */url($font-path + '.woff') format('woff'), // Modern Browsers
+    url($font-path + '.ttf') format('truetype'); // Safari, Android, iOS
+
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+
+

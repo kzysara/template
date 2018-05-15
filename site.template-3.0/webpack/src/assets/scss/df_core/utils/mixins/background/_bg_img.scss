@@ -1,0 +1,32 @@
+/// Background Image
+/// @access public
+/// @param {string} 백그라운드 이미지
+/// @param {string} 백그라운드 컬러값
+/// @param {boolean} 레티나 이미지 사용 선택
+/// @group background
+
+@mixin bg-img($args...){
+    $img-path: nth($args, 1);
+    $image: nth($args, 2);
+    $useRetina:false;
+
+  //@debug 'bg-img:' $image;
+
+    @each $i in $args{
+        @if(type_of($i) == bool){
+            $useRetina: $i;
+        }@else if(type_of($i) == color){
+            // background color
+            background-color: $i;
+        }
+    }
+    //
+    //// background image
+    @if($image !=null and $image != '') {
+        @if($useRetina){
+            @include img-retina($img-path, $image);
+       }@else{
+           background-image: url($img-path + $image);
+        }
+    }
+}

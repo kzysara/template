@@ -1,0 +1,27 @@
+{
+  "name": "DF_builder",
+  "author": "DF VID",
+  "version": "1.0.0",
+  "homepage": "http://designfever.com",
+  "description": "Gulp Task for DF",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "scripts": {},
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "browser-sync": "^2.18.8",
+    "clean": "^4.0.1",
+    "gulp": "^3.9.0",
+    "gulp-clean-css": "^3.6.0",
+    "gulp-css-replace-url": "^0.2.4",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sass": "^2.0.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-strip-css-comments": "^1.2.0",
+    "gulp-url-replace": "^1.0.2"
+  },
+  "dependencies": {
+
+  }
+}

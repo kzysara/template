@@ -1,0 +1,36 @@
+/// ** Font family **
+/// @param {Value}
+/// @디자인 스타일 가이드에 따른 폰트 타입 정의
+/// @group fonts
+
+@mixin font-family($type: null){
+    @if($type == 'common'){
+        font-family: $fonts-face-custom-regular, $fonts-face-default;
+    }@else if($type == 'light'){
+        font-family: $fonts-face-custom-light;
+    }@else if($type == 'regular'){ //국문 regualr,  영문 book-regular
+        font-family: $fonts-face-custom-regular;
+    }@else if($type == 'kr-regular'){ // 국문 regular
+        font-family: $fonts-face-custom-kr-regular;
+    }@else if($type == 'en-regular'){ // 영문 book-regular
+        font-family: $fonts-face-custom-en-regular;
+    }@else if($type == 'en-x-regular'){ // 영문 original regular
+        font-family: $fonts-face-custom-en-x-regular;
+    }@else if($type == 'en-x-kr-regular'){ // 영문 original regular, 국문 regular
+        font-family: $fonts-face-custom-en-x-regular, $fonts-face-custom-kr-regular;
+    }@else if($type == 'lgt-regular'){ // 영문 light, 국문 regular
+        font-family: $fonts-face-custom-lgt-regular;
+    }@else if($type == 'reg-smbold'){ // 영문 original regular, 국문 semibold
+        font-family: $fonts-face-custom-en-x-regular, $fonts-face-custom-smbold;
+    }@else if($type == 'smbold'){ // 국문 semi bold
+        font-family: $fonts-face-custom-smbold;
+    }@else if($type == 'bold'){
+        font-family: $fonts-face-custom-bold;
+    }@else if($type == 'kr-bold'){
+        font-family: $fonts-face-custom-kr-bold;
+    }@else if($type == null or $type=='default'){
+        font-family: $fonts-face-default;
+    }@else{
+        @error '유효하지 않는 폰트 타입입니다.';
+    }
+}

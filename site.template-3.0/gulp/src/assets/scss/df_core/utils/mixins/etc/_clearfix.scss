@@ -1,0 +1,14 @@
+/// Clearfix
+/// @access public
+/// @group etc.
+
+@mixin clearfix(){
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}

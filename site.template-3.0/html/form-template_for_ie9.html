@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <title>Form Template for ie9 | DF HTML Template</title>
+
+    <script type="text/javascript" src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
+    <script type="text/javascript" src="../assets/js/vendor/df.utils.js"></script>
+
+    <!-- temp style -->
+    <style>
+        .placeholder {color:#CCCCCC;}
+    </style>
+
+</head>
+<body>
+
+<!-- TEST - error msg -->
+<p id="id_test_error" style="color: #FF0000; display: none;">ERROR</p>
+
+<!-- form -->
+<form id="id-sign-up" name="user_info" method="POST" accept-charset="utf-8" action="submit.php">
+    <fieldset>
+        <legend>Insert Your Information</legend>
+        <label for="id_email">Email Address</label>
+        <span for="id_email" class="placeholder">abc@abc.com</span><!-- for ie9 : custom placeholder -->
+        <input id="id_email" form="id-sign-up" type="email" name="email" autocomplete="off" placeholder="" title="Please enter a correctly formatted email address." required><br>
+
+        <label for="id_code">Invitation Code</label>
+        <span for="id_code" class="placeholder">ABCDE12345</span><!-- for ie9 : custom placeholder -->
+        <input id="id_code" form="id-sign-up" type="text" name="code" autocomplete="off" maxlength="10" placeholder="" pattern="[A-Za-z0-9]{10}" title="Please enter a correctly invitation code." required><br>
+
+        <input form="id-sign-up" type="submit" value="SIGN UP">
+    </fieldset>
+</form>
+
+<!-- JS : submit form / validate input -->
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        // for ie9 : placeholder fix
+        function _onFocusin_field($input){      // focus in 일 경우 custom placeholder를 가리기
+            var placeholder = $("#id-sign-up span[for='"+$($input).attr("id")+"']");
+            $(placeholder).css({"display":"none"});
+            $($input).attr("placeholder", $(placeholder).text());
+            $($input).off("focusout");
+            $($input).on("focusout", function(evt){_onFocusout_field(this);});
+        }
+        function _onFocusout_field($input){     // focus out 일 경우 custom placeholder를 보이기
+            var placeholder = $("#id-sign-up span[for='"+$($input).attr("id")+"']");
+            $(placeholder).css({"display":""});
+            $($input).attr("placeholder", "");
+            $($input).off("focusout");
+        }
+
+        // focus in 이벤트 등록
+        $("#id_email").on("focusin", function(evt){_onFocusin_field(this);});
+        $("#id_code").on("focusin", function(evt){_onFocusin_field(this);});
+
+        // 초기 셋팅
+        _onFocusin_field($("#id_email"));
+        $("#id_email").focus();
+
+        /////////////////////////////////////////////
+        /////////////////////////////////////////////
+        // submit
+        $("#id-sign-up").on("submit", function(evt) {
+            var valid = _isValidate();
+            if(valid.isOK_code && valid.isOK_mail){     // 모든 조건 충족시
+                alert("true : Submit OK");
+                return true; // submit 실행
+            }else{                                      // validate
+                if(!valid.isOK_mail){
+                    _showError_mail();
+                    return false;
+                }
+                if(!valid.isOK_code){
+                    _showError_code();
+                    return false;
+                }
+                return false;
+            }
+        });
+
+        /////////////////////////////////////////////
+        // validate
+        function _isValidate(){
+            var isOK_mail = true;
+            var isOK_code = true;
+
+            // 정규식 : 이메일 폼
+            var regExp_email = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+            if($("#id_email").val().match(regExp_email) == null){
+                isOK_mail = false;
+            }
+
+            // 정규식 : 10자리 라틴,숫자
+            var regExp_code = /^[A-Za-z0-9]{10}$/;
+            if($("#id_code").val().match(regExp_code) == null){
+                isOK_code = false;
+            }
+
+            return {
+                isOK_mail:isOK_mail,
+                isOK_code:isOK_code
+            };
+        }
+
+        //////////////////////////////////////////
+        // error msg
+        function _showError_mail(){
+            alert("false : Email Error.");
+            $("#id_test_error").css({"display":"block"});
+        }
+
+        function _showError_code(){
+            alert("false : Invitation Code Error.");
+            $("#id_test_error").css({"display":"block"});
+        }
+
+        function _hideError_code(){
+            $("#id_test_error").css({"display":"none"});
+        }
+
+        // when input again.. error msg off
+        $("#id_email").on("change", _hideError_code);
+        $("#id_code").on("change", _hideError_code);
+    });
+
+</script>
+</body>
+</html>

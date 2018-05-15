@@ -1,0 +1,76 @@
+// Helper classes
+// --------------------------------------------------------------------------
+
+.blind{
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  text-indent: -9999px !important;
+  font-size: 0 !important;
+  opacity:0;
+  overflow: hidden !important;
+}
+
+
+
+// hide & show
+.hide{display:none !important;}
+.show{display:block !important;}
+.visible-hide { visibility: hidden !important;}
+.visible-show { visibility: visible !important;}
+
+// align
+.float{
+  &-l{
+    float: left;
+  }
+  &-r{
+    float: right;
+  }
+}
+
+///
+/// @text-align Class
+/// talign-l { text-align: left}
+/// talign-c { text-align: center}
+/// talign-r { text-align: right}
+.talign{
+  &-l{
+    text-align: left;
+  }
+  &-c{
+    text-align: center;
+  }
+  &-r{
+    text-align: right;
+  }
+}
+
+// text-style
+.upper-case{
+  text-transform: uppercase !important;
+}
+.lower-case{
+  text-transform: lowercase !important;
+}
+
+// Clearfix: contain floats
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// br
+br._m{
+  display: none;
+}
+
+
+
+

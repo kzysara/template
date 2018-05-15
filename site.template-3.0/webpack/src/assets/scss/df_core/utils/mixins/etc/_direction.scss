@@ -1,0 +1,24 @@
+/// Direction
+/// @access public
+/// @group etc.
+
+// direction mixin
+@mixin float($dir) {
+    @if $dir == left {
+        float: $def-float;
+    } @else if $dir == right {
+        float: $opp-float;
+    } @else {
+        float: $dir;
+    }
+}
+
+@mixin text-align($dir) {
+    @if $dir == left {
+        text-align: $def-float;
+    } @else if $dir == right {
+        text-align: $opp-float;
+    } @else {
+        text-align: $dir;
+    }
+}

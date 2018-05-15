@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko"><!-- html 언어 정의 : ko, en, ja, zh, it, de .. -->
+<head>
+    <!-- HTML Encoding (Character Sets) : UTF-8, EUC-KR -->
+    <meta charset="utf-8">
+
+    <!-- ie 호환성 보기모드 설정 : IE=7, IE=8, IE=9, IE=edge(가장 최신버젼으로 보기) -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- viewport for mobile device / REF : http://aboooks.tistory.com/352 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- ======================================================================================================================================================================= -->
+    <!-- Favicon -->
+    <!-- REF : https://en.wikipedia.org/wiki/Favicon -->
+    <!-- REF : http://webdir.tistory.com/337 -->
+    <!-- 브라우져 상단에 표시될 아이콘. .ico / .png / .gif 지원하지만, 구ie를 위해 .ico가 안전함.  32x32(ico 파일 안에 16x16, 24x24x, 48x48, 64x64 포함할 수 있으면 좋음) ico / png 둘다 선언시 ico 우선 적용 -->
+    <link rel="shortcut icon" type="image/x-icon" href="http://designfever.com/favicon.ico">
+    <!-- or -->
+    <link rel="icon" sizes="16x16" href="favicon-16.png">
+    <link rel="icon" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" sizes="48x48" href="favicon-48.png">
+    <link rel="icon" sizes="64x64" href="favicon-64.png">
+    <link rel="icon" sizes="128x128" href="favicon-128.png">
+
+    <!-- for windows metro tile --> <!-- windows 매트로 타일에 웹페이지 바로가기아이콘을 고정(pin) 할 경우 이를 표시할 타일 색과 섬네일 144x144 .png -->
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="favicon-144x144.png">
+
+    <!-- iOS home screen favorite -->
+    <!-- REF : https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html-->
+    <link rel="apple-touch-icon" href="http://designfever.com/assets/images/share/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+
+    <!--https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html#//apple_ref/doc/uid/TP40008193-SW3-->
+    <meta name="apple-mobile-web-app-capable" content="yes">    <!-- iOS 홈 화면에 즐겨찾기 추가시 사파리 ui 보여질지 여부-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- iOS 홈 화면에 즐겨찾기 추가시 상당 status바 스타일 지정 default / black /  black-translucent -->
+    <meta name="format-detection" content="telephone=no"> <!-- iOS 페이지 내의 컨텐츠 중에 전화번호 형식으로 된 컨텐츠를 자동으로 디텍팅하여 전화연결 호출 링크를 만드는 기능을 끄기 -->
+
+    <!-- ======================================================================================================================================================================= -->
+    <!-- App Link ============================================================================================================================================================== -->
+
+    <!-- link Mobile App info -->
+    <!-- REF : https://developers.facebook.com/docs/applinks/add-to-content-->
+    <!-- 해당 페이지가 모바일 앱으로도 서비스를 할 경우 / like Youtube.com
+    <meta property="al:ios:url" content="example://applinks" />
+    <meta property="al:ios:app_store_id" content="12345" />
+    <meta property="al:ios:app_name" content="Example App" />
+    <meta property="al:android:url" content="sharesample://story/1234">
+    <meta property="al:android:package" content="com.facebook.samples.sharesample">
+    <meta property="al:android:app_name" content="ShareSample">
+    <meta property="al:web:url" content="http://applinks.org/documentation">
+    -->
+
+    <!-- ======================================================================================================================================================================= -->
+    <!-- SEO =================================================================================================================================================================== -->
+
+    <!-- for SEO :alternate
+    * 언어 사이트설정 사용하기 : 번역된 콘텐츠를 제공하거나 특정 지역의 사용자에게 타겟팅된 콘텐츠를 제공 목적
+    * 한 개의 URL에 다국어 버전이 있는 경우 각 언어 페이지는 자신을 포함한 다른 언어 버전을 나타내야 합니다.
+    -->
+    <link rel="alternate" href="http://designfever.com/kr/en/SEO-Guide.html" hreflang="en">
+    <link rel="alternate" href="http://designfever.com/us/en/SEO-Guide.html" hreflang="en">
+    <link rel="alternate" href="http://designfever.com/jp/ja/SEO-Guide.html" hreflang="ja">
+    <link rel="alternate" href="http://designfever.com/cn/zh/SEO-Guide.html" hreflang="zh">
+
+    <!-- for SEO : canonical
+    * 해당 페이지에 접근할 수 있는 여러 url 중에 대표되는 url을 명시적으로 선언함, 경로가 다른 여러 페이지들이 결국 동일 컨텐츠 임을 의미
+    * e.g)
+    * http://www.domain.html/sub/page.html
+    * http://sub.domain.html/
+    * http://192.168.1.202/sub/page.html
+    * http://www.domain.html/sub/getPage.php?sq=123456
+    * -------------------------------------------------- > http://www.domain.html/sub/page.html
+    -->
+    <link rel="canonical" href="http://designfever.com/SEO-Guide.html"> <!-- !! very important -->
+
+    <!-- for SEO : Default Site info -->
+    <title>SEO Guide | DF HTML Template</title> <!-- 페이지 제목 (브라우져에 표시) -->
+    <meta name="description" content="This is SEO Guide for DF."> <!-- 페이지 설명 값 -->
+    <meta name="keywords" content=""><!-- 페이지 키워드 값 -->
+    <meta name="apple-mobile-web-app-title" content="SEO Guide | DF HTML Template"> <!-- 페이지 제목 값 : 홈화면에 추가시 / 웹앱 형태로 삽입될 시 보여지게 될 제목-->
+    <link rel="image_src" href="http://designfever.com/assets/images/share/share-thumb_200x200.png">
+
+    <!-- ======================================================================================================================================================================= -->
+    <!-- SNS Share ============================================================================================================================================================= -->
+
+    <!-- for Share information -->
+    <!-- FB -->
+    <!-- REF : https://developers.facebook.com/docs/sharing/webmasters -->
+    <meta property="og:site_name" content="df-site-templete">
+    <meta property="og:title" content="SEO Guide | DF HTML Template">
+    <meta property="og:description" content="This is SEO Guide for DF.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:url" content="http://designfever.com/SEO-Guide.html">    <!--  rel=canonical -->
+    <meta property="og:image" content="http://designfever.com/assets/images/share/share-thumb_1200x630.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- TW -->
+    <!-- REF : https://dev.twitter.com/cards/types/summary-large-image -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SEO Guide | DF HTML Template">
+    <meta name="twitter:description" content="This is SEO Guide for DF.">
+    <meta name="twitter:url" content="http://designfever.com/SEO-Guide.html">
+    <meta name="twitter:image" content="http://designfever.com/assets/images/share/share-thumb_200x200.png">
+
+    <!-- ======================================================================================================================================================================= -->
+
+</head>
+<body>
+<h1>DF HTML SEO Guide</h1>
+<p>for SEO, SNS Share</p>
+<br>
+<p>소스보기로 head 내용 참고 하세요.</p>
+<br>
+<br>
+<a href="SEO-Guide-Required.html">필수 요소 간략 버젼 -> Only Required : SEO-Guide-Required.html</a>
+</body>
+</html>

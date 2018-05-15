@@ -1,0 +1,26 @@
+/// SVG 생성
+/// @param {Value} svg path
+/// @param {boolean} use fallback image
+/// @group icon
+@mixin svg-clip($args...){
+    $img-path: nth($args, 1);
+    $image: nth($args, 2);
+    $useFallbackImg:false;
+
+    @each $i in $args{
+        @if(type_of($i) == bool){
+            $useFallbackImg: $i;
+        }
+    }
+
+    background: url($img-path + $image);
+
+    @if($useFallbackImg){
+        @at-root .no-svg & {
+            $start: str-index($image, '.')-1;
+            $file: (str_slice($image, 0, $start));
+            $image : $file + '.png';
+            background-image: url($img-path + $image);
+        }
+    }
+}

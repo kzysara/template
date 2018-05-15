@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <!-- share 영역 -->
+
+
+    <!-- common CSS / JS -->
+    <link type="text/css" rel="stylesheet" href="../assets/css/style.css">
+    <script type="text/javascript" src="../assets/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="../assets/js/vendor/detectizr.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- browser upgrade and skip Navigation -->
+        <!--[if lt IE 9]>
+        <p class="browser-upgrade">
+            You are using an outdated browser.
+            <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="https://www.google.com/chrome/">install Google Chrome Frame</a> to better experience this site.<br>
+            오래된 브라우저를 사용하는 것은 컴퓨터를 안전하지 않게 만듭니다.
+            <a href="http://browsehappy.com/">업그레이드</a> 또는 더 좋은 인터넷 경험을 위해 <a href="https://www.google.com/chrome/">크롬</a>을 사용하세요.
+        </p>
+        <![endif]-->
+
+        <!-- Skip Nav -->
+        <div id="skip-navi">
+            <a href="#container"><span>본문 바로가기</span></a>
+        </div>
+
+        <header>
+            <h1 class="site-logo"><a href="#"><img src="http://designfever.com./asset/img/df_logo.png" alt="회사명" /></a></h1>
+            <nav>
+                <ul>
+                    <li><a href=" ">메뉴1</a></li>
+                    <li><a href=" ">메뉴2</a></li>
+                    <li><a href=" ">메뉴3</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="container">
+            <div class="inner-contain">
+                <div id="side-contents">
+                    <h2>사이드 콘텐츠 제목</h2>
+                    <div>사이드 콘텐츠입니다.</div>
+                </div>
+
+                <!-- Add content  -->
+                <section id="section-1" class="content-1">
+                    <div class="inner-cont-wrap">
+                        <h2>섹션 제목</h2>
+                        <div>div컨테이너 입니다.</div>
+                        <article>콘텐츠</article>
+                    </div>
+                </section>
+                <!-- //Add content  -->
+            </div>
+        </div>
+
+        <footer>
+            <div class="inner-wrap">
+                <div class="ft-content">
+                    <ul class="ft-menu">
+                        <li class="first"><a href="">풋터메뉴1</a></li>
+                        <li class="second"><a href="">풋터메뉴2</a></li>
+                        <li class="last"><a href="">풋터메뉴3</a></li>
+                    </ul>
+                    <address>COMPANY NAME &copy; 2016</address>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Optional Source : common_tail  -->
+        <!-- layer popup -->
+        <div id="popup-0" class="popup hide">
+            <h1>팝업 타이틀입니다.</h1>
+            <div>팝업 콘텐츠입니다.</div>
+            <p class="close-pop"><a href="#">닫기</a></p>
+        </div>
+        <div id="overlay" class="hide"></div>
+    </div>
+
+    <!-- 3. custom js for page -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
+    <script src="../assets/js/plugins.js"></script>
+</body>
+</html>

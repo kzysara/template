@@ -1,0 +1,175 @@
+#set( $root_path = "http://designfever.com" )
+
+#if($Page_title == "")
+#set( $Title = "DF HTML Template" )
+#else
+#set( $Title = "${Page_title} | DF HTML Template" )
+#end
+
+#if($Page_description == "")
+#set( $Dec = "This is DF HTML Template v.3.0.0" )
+#else
+#set( $Dec = "${Page_description}" )
+#end
+
+#if($FileFolderPath == "")
+#set( $FolderPath = "/" )
+#else
+#set( $FolderPath = "${FileFolderPath}" )
+#end
+
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+        <!-- Default SEO Setting -->
+        <!--
+        * 언어 사이트설정 사용하기 : 번역된 콘텐츠를 제공하거나 특정 지역의 사용자에게 타겟팅된 콘텐츠를 제공 목적
+        * 한 개의 URL에 다국어 버전이 있는 경우 각 언어 페이지는 자신을 포함한 다른 언어 버전을 나타내야 합니다.
+        * 적용 시에는 아래 코드를 활성화 시켜주도록 한다.-->
+        <!--
+        <link rel="alternate" href="${root_path}/en${FolderPath}${NAME}.html" hreflang="en">
+        -->
+
+        <!--
+        * 해당 페이지에 접근할 수 있는 여러 url 중에 대표되는 url
+
+        * e.g)
+        * http://www.domain.html/sub/page.html
+        * http://sub.domain.html/
+        * http://192.168.1.202/sub/page.html
+        * http://www.domain.html/sub/getPage.php?sq=123456
+
+        * -- > http://www.domain.html/sub/page.html
+        -->
+        <link rel="canonical" href="${root_path}${FolderPath}${NAME}.html">
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="${root_path}/favicon.ico">
+
+        <!-- Favorites Thumbnails -->
+        <link rel="apple-touch-icon" href="${root_path}/assets/images/share/apple-touch-icon.png">
+        <link rel="image_src" href="${root_path}/assets/images/share/share-thumb_200x200.png">
+        <meta name="image" content="${root_path}/assets/images/share/share-thumb_200x200.png">
+        <meta name="thumbnail" content="${root_path}/assets/images/share/share-thumb_200x200.png">
+
+        <!-- Default Site info -->
+        <title>${Title}</title>
+        <meta name="title" content="${Title}">
+        <meta name="description" content="${Dec}">
+        <meta name="keywords" content=" ">
+        <meta name="apple-mobile-web-app-title" content="${Title}">
+
+        <!-- for Share information -->
+        <!-- FB -->
+        <meta property="og:site_name" content="${PROJECT_NAME}">
+        <meta property="og:title" content="${Title}">
+        <meta property="og:description" content="${Dec}">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="ko_KR">
+        <meta property="og:url" content="${root_path}${FolderPath}${NAME}.html">
+        <meta property="og:image" content="${root_path}/assets/images/share/share-thumb_1200x630.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+
+        <!-- TW -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="${Title}">
+        <meta name="twitter:description" content="${Dec}">
+        <meta name="twitter:url" content="${root_path}${FolderPath}${NAME}.html">
+        <meta name="twitter:image" content="${root_path}/assets/images/share/share-thumb_200x200.png">
+
+        <!-- common CSS / JS -->
+        <link type="text/css" rel="stylesheet" href="../assets/css/default.css">
+
+        <script type="text/javascript" src="../assets/js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-3.1.1.min.js"><\/script>')</script>
+        <script type="text/javascript" src="../assets/js/vendor/df.utils.js"></script>
+
+        <!-- custom CSS for page -->
+        <link type="text/css" rel="stylesheet" href="../assets/css/custom_style.css">
+    </head>
+<body>
+    <div class="wrapper">
+        <!-- browser upgrade and skip Navigation -->
+        <!--[if lt IE 9]>
+        <p class="browser-upgrade">
+            You are using an outdated browser.
+            <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.<br>
+            오래된 브라우저를 사용하는 것은 컴퓨터를 안전하지 않게 만듭니다.
+            <a href="http://browsehappy.com/">업그레이드</a> 또는 더 좋은 인터넷 경험을 위해 <a href="http://www.google.com/chromeframe/?redirect=true">크롬</a>을 사용하세요.
+        </p>
+        <![endif]-->
+
+        <!-- Skip Nav -->
+        <div id="skip-navi">
+            <a href="#container"><span>본문 바로가기</span></a>
+        </div>
+
+		<header>
+            <h1 class="site-logo"><a href="#"><img src="http://designfever.com./asset/img/df_logo.png" alt="회사명" /></a></h1>
+            <nav>
+                <ul>
+                    <li><a href=" ">메뉴1</a></li>
+                    <li><a href=" ">메뉴2</a></li>
+                    <li><a href=" ">메뉴3</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div id="container">
+			<div class="inner-contain">
+				<div id="side-contents">
+					<h2>사이드 콘텐츠 제목</h2>
+					<div>사이드 콘텐츠입니다.</div>
+				</div>
+
+				<!-- Add content  -->
+				<section id="section-1" class="content-1">
+					<div class="inner-cont-wrap">
+						<h2>섹션 제목</h2>
+						<div>div컨테이너 입니다.</div>
+						<article>콘텐츠</article>
+					</div>
+				</section>
+				<!-- //Add content  -->
+			</div>
+		</div>
+
+        <footer>
+            <div class="inner-wrap">
+                <div class="ft-content">
+                    <ul class="ft-menu">
+                        <li class="first"><a href="">풋터메뉴1</a></li>
+						<li class="second"><a href="">풋터메뉴2</a></li>
+						<li class="last"><a href="">풋터메뉴3</a></li>
+                    </ul>
+                    <address>COMPANY NAME &copy; 2016</address>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Optional Source : common_tail  -->
+        <!-- layer popup -->
+        <div id="popup-0" class="popup hide">
+            <h1>팝업 타이틀입니다.</h1>
+            <div>팝업 콘텐츠입니다.</div>
+            <p class="close-pop"><a href="#">닫기</a></p>
+        </div>
+        <div id="overlay" class="hide"></div>
+    </div>
+
+    <!-- custom JS for page -->
+    <script src="../assets/js/interactive/main.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // ready
+            #[[$END$]]#
+        });
+    </script>
+</body>
+</html>

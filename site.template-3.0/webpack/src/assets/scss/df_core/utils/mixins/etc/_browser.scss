@@ -1,0 +1,20 @@
+/// 브라우저 예외 처리
+/// @access public
+/// @group etc.
+
+@mixin ie-only {
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        @content;
+    }
+
+    @media screen and (min-width: 0\0) {
+        @content;
+    }
+}
+
+@mixin firefox-only() {
+    @-moz-document url-prefix() {
+        @content;
+    }
+}
+

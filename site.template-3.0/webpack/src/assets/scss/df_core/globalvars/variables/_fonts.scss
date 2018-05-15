@@ -1,0 +1,39 @@
+//  웹 폰트 폰트 페이스명, 파일명 정의
+$fonts-face-custom:(
+    //* 국문 폰트 페이스명: 파일명
+    SDGothicNeoR-Regular:        A400SDGothicNeoR-Regular,
+    SDGothicNeoSB-SemiBold:    A500SDGothicNeoSB-SemiBold,
+    SDGothicNeoB-Bold:             A600SDGothicNeoB-Bold,
+
+    //* 영문 폰트 페이스명: 파일명
+    NobelL-Light:                       A100NobelL-Light,
+    NobelBook-Regular:             A200NobelBook-Regular,
+    NobelR-Regular:                   A300NobelR-Regular,
+    NobelB-Bold:                        A400NobelB-Bold
+) !global !default;
+
+
+
+
+// 기본 폰트 스타일 정의
+$fonts-default: (
+    font-name:      unquote("'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', 'Apple SD 고딕 Neo', 'Microsoft NeoGothic', 'Droid sans', Dotum, 돋움, 굴림, arial, Helvetica, sans-serif"),
+    font-size:      12px,
+    line-height:    1.3
+) !global !default;
+
+//  기본 폰트 설정
+$fonts-default-size: map_get($fonts-default, font-size);
+$fonts-default-line-height: map_get($fonts-default, line-height);
+
+// 사용자 폰트 변수
+$fonts-face-default:                    map_get($fonts-default, font-name);
+$fonts-face-custom-light:          nth(map_keys($fonts-face-custom), 4);
+$fonts-face-custom-regular:       nth(map_keys($fonts-face-custom), 5), nth(map_keys($fonts-face-custom), 1);
+$fonts-face-custom-kr-regular:        nth(map_keys($fonts-face-custom), 1);
+$fonts-face-custom-en-regular:        nth(map_keys($fonts-face-custom), 5);
+$fonts-face-custom-en-x-regular:        nth(map_keys($fonts-face-custom), 6);
+$fonts-face-custom-lgt-regular:       nth(map_keys($fonts-face-custom), 4), nth(map_keys($fonts-face-custom), 1);
+$fonts-face-custom-smbold:      nth(map_keys($fonts-face-custom), 2);
+$fonts-face-custom-bold:           nth(map_keys($fonts-face-custom), 7), nth(map_keys($fonts-face-custom),3);
+$fonts-face-custom-kr-bold:           nth(map_keys($fonts-face-custom),3);

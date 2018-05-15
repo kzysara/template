@@ -1,0 +1,29 @@
+/// Background-image Property
+/// @access public
+/// @param {Value} String : value(repeat, position, size)
+/// @group background
+
+@mixin bg-attr($repeat:null, $position:null, $size:null){
+    @if($repeat != null and $repeat != ''){
+        @if($repeat == R){
+            background-repeat: repeat;
+        }@else if($repeat == X) {
+            background-repeat: repeat-x;
+        }@else if($repeat == Y){
+            background-repeat: repeat-y;
+        }@else if($repeat == N){
+            background-repeat: no-repeat;
+        }@else{
+
+        }
+    }
+
+    @if($position != null and $position != ''){
+        background-position: $position;
+    }
+
+
+    @if($size != null and $size != ''){
+        background-size: $size;
+    }
+}

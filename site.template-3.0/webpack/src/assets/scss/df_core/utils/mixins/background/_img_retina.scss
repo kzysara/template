@@ -1,0 +1,26 @@
+/// Background Image 고해상도 버전 생성
+/// @access private
+/// @정의된 레티나 이미지 구분: sample2x.jpg
+/// @group background
+
+@mixin img-retina($img-path, $image) {
+    $start: str-index($image, '.')-1;
+    $file: (str_slice($image, 0, $start));
+    $ext: str_slice($image, $start+1);
+    $image : $file + $ext;
+
+
+    background-image: url("#{$img-path + $image}");
+
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (   min--moz-device-pixel-ratio: 2),
+    only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2),
+    only screen and (                min-resolution: 192dpi),
+    only screen and (                min-resolution: 2dppx) {
+        $file: $file + '2x';
+        $image : $file + $ext;
+        background-image: url("#{$img-path + $image}");
+    }
+}

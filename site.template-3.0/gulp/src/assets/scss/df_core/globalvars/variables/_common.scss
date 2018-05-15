@@ -1,0 +1,20 @@
+// 경로 정의
+$path-common-img: '/common/img';
+$path-web-font: '/common/fonts' !default;
+
+// psd 가로 크기 정의(vw 단위 변환을 위한)
+$psd-pc-width:           1920px !default;
+$psd-tablet-width:       1280px !default;
+$psd-mobile-width:       750px !default;
+
+// IE8이상 지원
+$legacy-support-for-ie8: false !global;
+
+// IE9이상 지원
+$legacy-support-for-ie9: true !global !default;
+
+
+
+
+
+
